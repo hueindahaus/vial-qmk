@@ -1,5 +1,15 @@
 {
     "lighting": "none",
+    "customKeycodes": [
+        {"name": "CKC_LT",
+         "title": "Custom left thumb",
+         "shortName": "CKC_LT"
+        },
+        {"name": "CKC_RT",
+         "title": "Custom right thumb",
+         "shortName": "CKC_RT"
+        }
+    ],
     "matrix": {
         "cols": 6,
         "rows": 10
