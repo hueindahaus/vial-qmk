@@ -5,6 +5,8 @@
 #define VIAL_UNLOCK_COMBO_ROWS {4, 9}
 #define VIAL_UNLOCK_COMBO_COLS {5, 5}
 
+#define DYNAMIC_KEYMAP_LAYER_COUNT 8
+
 /* saving some more space, */
 #undef LOCKING_SUPPORT_ENABLE
 #undef LOCKING_RESYNC_ENABLE

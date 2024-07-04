@@ -1,4 +1,5 @@
-ENCODER_MAP_ENABLE = yes
+ENCODER_MAP_ENABLE = no
+OS_DETECTION_ENABLE = yes
 
 # Vial setup
 VIA_ENABLE = yes

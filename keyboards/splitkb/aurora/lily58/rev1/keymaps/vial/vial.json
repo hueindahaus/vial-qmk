@@ -1,13 +1,21 @@
 {
     "lighting": "none",
     "customKeycodes": [
-        {"name": "CKC_LT",
-         "title": "Custom left thumb",
-         "shortName": "CKC_LT"
+        {"name": "QSE_LUT",
+         "title": "Qwerty custom left upper thumb",
+         "shortName": "QSE_LUT"
         },
-        {"name": "CKC_RT",
-         "title": "Custom right thumb",
-         "shortName": "CKC_RT"
+        {"name": "QSE_RUT",
+         "title": "Qwerty custom right upper thumb",
+         "shortName": "QSE_RUT"
+        },
+        {"name": "MSE_LUT",
+         "title": "Macos custom left upper thumb",
+         "shortName": "MSE_LUT"
+        },
+        {"name": "MSE_RUT",
+         "title": "Macos custom right upper thumb",
+         "shortName": "MSE_RUT"
         }
     ],
     "matrix": {
