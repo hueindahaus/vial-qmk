@@ -4,10 +4,10 @@
         "pid": "0xB4C2"
     },
     "features": {
-        "mousekey": true,
+        "mousekey": false,
         "bootmagic": true,
         "extrakey": true,
-        "oled": true,
+        "oled": false,
         "rgb_matrix": true
     },
     "layouts": {
@@ -84,7 +84,7 @@
         "cols": ["B5", "F7", "B1", "B3", "B2", "B6"]
     },
     "encoder": {
-        "enabled": true,
+        "enabled": false,
         "rotary": [
             {"pin_a": "C6", "pin_b": "D4"}
         ]

@@ -1,3 +1,4 @@
+#include "keycodes.h"
 #include QMK_KEYBOARD_H
 #include "os_detection.h"
 
@@ -30,11 +31,11 @@ bool handle_custom_keycode(uint16_t kc, uint16_t kc_on_shift, uint16_t kc_on_alt
 		set_mods(mods);
 		return true;
 	} else if(is_shift) {
-		tap_code16( kc_on_shift);
+		tap_code16(kc_on_shift);
 	} else if(is_alt) {
-		tap_code16( kc_on_alt);
+		tap_code16(kc_on_alt);
 	} else {
-		tap_code16( kc);
+		tap_code16(kc);
 	}
 	set_mods(mods);
 	return false;
@@ -43,26 +44,26 @@ bool handle_custom_keycode(uint16_t kc, uint16_t kc_on_shift, uint16_t kc_on_alt
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	switch (keycode) {
 		case QSE_LUT:
-            if (record->event.pressed) { 
+            if (record->event.pressed) {
 				return handle_custom_keycode(
-					QSE_LPRN,  
-					QSE_LBRC,  
+					QSE_LPRN,
+					QSE_LBRC,
 					QSE_LCBR
 				);
 			 }
             return false;
         case QSE_RUT:
-            if (record->event.pressed) { 
-				return handle_custom_keycode( 
-					QSE_RPRN,  
-					QSE_RBRC,  
+            if (record->event.pressed) {
+				return handle_custom_keycode(
+					QSE_RPRN,
+					QSE_RBRC,
 					QSE_RCBR
 				);
 			 }
             return false;
 		case MSE_LUT:
-            if (record->event.pressed) { 
-				return handle_custom_keycode( 
+            if (record->event.pressed) {
+				return handle_custom_keycode(
 					MSE_LPRN,
 					MSE_LBRC,
 					MSE_LCBR
@@ -70,9 +71,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			 }
             return false;
         case MSE_RUT:
-            if (record->event.pressed) { 
-				return handle_custom_keycode( 
-					MSE_RPRN,  
+            if (record->event.pressed) {
+				return handle_custom_keycode(
+					MSE_RPRN,
 					MSE_RBRC,
 					MSE_RCBR
 				);
@@ -108,20 +109,21 @@ bool process_detected_host_os_user(os_variant_t detected_os) {
     return false;
 }
 
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       [QWERTY_BASE] = LAYOUT(
 	KC_ESC,  QSE_1, QSE_2, QSE_3,    QSE_4,    QSE_5,                 	  		 QSE_6,  QSE_7,    QSE_8,    QSE_9,  QSE_0,     QSE_GRV,
 	KC_TAB,  QSE_Q, QSE_W, QSE_E,    QSE_R,    QSE_T,                  	 		 QSE_Y,  QSE_U,    QSE_I,    QSE_O,  QSE_P,     QSE_ARNG,
 	KC_LSFT, QSE_A, QSE_S, QSE_D,    QSE_F,    QSE_G,                   	  	 QSE_H,  QSE_J,    QSE_K,    QSE_L,  QSE_ODIA,  QSE_ADIA,
-	KC_LCTL, QSE_Z, QSE_X, QSE_C,    QSE_V,    QSE_B,  QSE_LUT, QSE_RUT, QSE_N,  QSE_M,    QSE_COMM, QSE_DOT, QSE_MINS, KC_RSFT,
-	                     				KC_LGUI, KC_LALT, KC_BSPC, KC_SPC,	KC_ENT,  MO(QWERTY_1), MO(QWERTY_2), KC_RGUI
+	KC_LCTL, QSE_Z, QSE_X, QSE_C,    QSE_V,    QSE_B,  QSE_LUT, QSE_RUT, QSE_N,  QSE_M,    QSE_COMM, QSE_DOT, QSE_MINS, XXXXXXX,
+	                     		KC_LGUI, KC_LALT, KC_BSPC, KC_SPC,	KC_ENT,  MO(QWERTY_1), KC_RALT, KC_RGUI
       ),
       [QWERTY_1] = LAYOUT(
 	KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
 	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-	QSE_GRV,  XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX,  XXXXXXX,                      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX,
-	QSE_LABK,   XXXXXXX,   XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,  _______, _______, QSE_PLUS, QSE_MINS, QSE_EQL,  QSE_QUOT, QSE_DIAE, QSE_ACUT,
-	                           _______, _______, _______,   _______, _______, _______, _______, _______
+	_______,  XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX,  XXXXXXX,                      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX,
+    _______,   QSE_LABK,   XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,  _______, _______, QSE_PLUS, QSE_MINS, QSE_EQL,  QSE_QUOT, QSE_DIAE, KC_BACKSLASH,
+	                           _______, _______, MO(QWERTY_2),   _______, _______, _______, _______, _______
       ),
       [QWERTY_2] = LAYOUT(
 	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -135,14 +137,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_TAB,  MSE_Q, MSE_W, MSE_E,    MSE_R,    MSE_T,                  	  MSE_Y,  MSE_U,    MSE_I,    MSE_O,  MSE_P,     MSE_ARNG,
 	KC_LSFT, MSE_A, MSE_S, MSE_D,    MSE_F,    MSE_G,                   	  MSE_H,  MSE_J,    MSE_K,    MSE_L,  MSE_ODIA,  MSE_ADIA,
 	KC_LCTL, MSE_Z, MSE_X, MSE_C,    MSE_V,    MSE_B,   MSE_LUT, 	MSE_RUT, MSE_N,  MSE_M,    MSE_COMM, MSE_DOT, MSE_MINS, KC_RSFT,
-	                     			KC_LGUI, KC_LALT, KC_BSPC, KC_SPC,	KC_ENT,  MO(MACOS_1), MO(MACOS_2), KC_RGUI
+	                     			KC_LGUI, KC_LALT, KC_BSPC, KC_SPC,	KC_ENT,  MO(MACOS_1), KC_RALT, KC_RGUI
       ),
       [MACOS_1] = LAYOUT(
 	KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
 	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-	QSE_GRV,  XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX,  XXXXXXX,                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX,
-	QSE_LABK,   XXXXXXX,   XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,  _______, _______, MSE_PLUS, MSE_MINS, MSE_EQL,  MSE_QUOT, MSE_DIAE, MSE_ACUT,
-	                           _______, _______, _______,   _______, _______, _______, _______, _______
+	_______,  XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX,  XXXXXXX,                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX,
+	_______,   QSE_LABK,   XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,  _______, _______, MSE_PLUS, MSE_MINS, MSE_EQL,  MSE_QUOT, MSE_DIAE, KC_BACKSLASH,
+	                           _______, _______, MO(MACOS_2),   _______, _______, _______, _______, _______
       ),
       [MACOS_2] = LAYOUT(
 	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
