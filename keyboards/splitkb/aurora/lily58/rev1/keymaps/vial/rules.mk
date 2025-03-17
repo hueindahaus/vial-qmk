@@ -1,5 +1,8 @@
+BOOTLOADER = rp2040
 ENCODER_MAP_ENABLE = no
 OS_DETECTION_ENABLE = yes
+OLED_ENABLE = yes
+WPM_ENABLE = yes
 
 # Vial setup
 VIA_ENABLE = yes

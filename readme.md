@@ -37,6 +37,16 @@ QMK is developed and maintained by Jack Humbert of OLKB with contributions from 
 
 
 ## Self added
-`qmk compile -kb splitkb/aurora/lily58 -km default -e CONVERT_TO=helios --compiledb`
-`make splitkb/aurora/lily58/rev1:vial -e CONVERT_TO=helios`
+
+## set up dev env
 `make git-submodules`
+
+# Default keymap 
+`qmk compile -kb splitkb/aurora/lily58 -km default -e CONVERT_TO=liatris --compiledb`
+
+# Custom keymap
+`make splitkb/aurora/lily58/rev1:vial -e "CONVERT_TO=liatris" && cp splitkb_aurora_lily58_rev1_vial_liatris.uf2 /mnt/c/Users/Alexa/Downloads/`
+
+
+## Flashing (not figured out yet, I think I can't run this on wsl)
+`qmk compile -kb splitkb/aurora/lily58 -km default -e CONVERT_TO=liatris --compiledb && qmk flash --keyboard splitkb/aurora/lily58/rev1 --keymap vial -e CONVERT_TO=liatris`

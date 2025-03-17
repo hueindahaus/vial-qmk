@@ -7,6 +7,15 @@
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 8
 
+/* Select hand configuration */
+
+#define MASTER_LEFT
+// #define MASTER_RIGHT
+// #define EE_HANDS
+#define SPLIT_WPM_ENABLE
+#define TAPPING_FORCE_HOLD
+#define TAPPING_TERM 100
+
 /* saving some more space, */
 #undef LOCKING_SUPPORT_ENABLE
 #undef LOCKING_RESYNC_ENABLE

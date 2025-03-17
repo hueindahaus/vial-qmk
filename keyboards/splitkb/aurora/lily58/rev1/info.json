@@ -7,7 +7,7 @@
         "mousekey": false,
         "bootmagic": true,
         "extrakey": true,
-        "oled": false,
+        "oled": true,
         "rgb_matrix": true
     },
     "layouts": {
